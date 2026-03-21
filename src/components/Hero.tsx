@@ -60,12 +60,12 @@ function Hero({ isDay, setIsDay, onclick }: HeroProps) {
       transition={{ duration: 17, type: "spring", damping: 15 }}
       className="flex flex-col items-center gap-y-15 py-30 z-50 h-150"
     >
-      <h1 className="font-mono text-7xl leading-18 font-extrabold text-center w-300 text-gray-300">
+      <h1 className="font-[sono]! text-7xl leading-18 font-extrabold text-center w-300 text-gray-300">
         {upper}
         <br />
         {lower}
       </h1>
-      <h1 className="absolute left-[50%] -translate-x-[50.15%] -translate-y-[1.5%] font-mono text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+      <h1 className="absolute left-[50%] -translate-x-[50.15%] -translate-y-[1.5%] font-[sono]! text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-500 via-blue-500 to-red-500 bg-clip-text text-transparent">
         {upper}
         <br />
         {lower}
@@ -75,7 +75,7 @@ function Hero({ isDay, setIsDay, onclick }: HeroProps) {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, type: "spring" }}
-          className="w-[30%] flex flex-col gap-y-5 items-center text-center"
+          className="w-[35%] flex flex-col gap-y-5 items-center text-center"
         >
           <div>
             <i>

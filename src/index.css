@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
+* {
+  font-family: "Inter", sans-serif;
+}
+
 body {
   @apply bg-gray-950 text-gray-300;
+  overflow-x: hidden;
 }
 
 .set {
