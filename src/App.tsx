@@ -2,11 +2,13 @@ import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Hero from "./components/Hero";
 import Widget from "./components/Widget";
+import Digit from "./components/Digit";
 
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
   const [rotate, setRotate] = useState<number>(45);
   const [hue, setHue] = useState<number>(0);
+  const [hasEntered, setHasEntered] = useState<boolean>(false);
   const moonImg = useRef<HTMLImageElement>(null);
   const sunImg = useRef<HTMLImageElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
@@ -102,16 +104,30 @@ function App() {
             link="https://www.nps.gov/orgs/1207/03-13-26-2025-visitation-statsitics.htm"
           >
             <div className="h-full flex flex-col gap-y-3 justify-center">
-              <h2
+              <motion.div
+                onViewportEnter={() => setHasEntered(true)}
+                viewport={{ once: true, amount: 0.5 }}
                 style={
                   {
                     "--text-gradient": `linear-gradient(to right,hsl(${hue % 360},100%,50%),hsl(${(hue + 90) % 360},100%,50%))`,
                   } as React.CSSProperties
                 }
-                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['4,278,213'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent!`}
+                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['4,278,213'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent! before:opacity-80 flex items-center justify-center`}
               >
-                4,278,213
-              </h2>
+                {hasEntered && (
+                  <>
+                    <Digit digit={4} hue={hue} i={0} l={7} />
+                    ,
+                    <Digit digit={2} hue={hue} i={1} l={7} />
+                    <Digit digit={7} hue={hue} i={2} l={7} />
+                    <Digit digit={8} hue={hue} i={3} l={7} />
+                    ,
+                    <Digit digit={2} hue={hue} i={4} l={7} />
+                    <Digit digit={1} hue={hue} i={5} l={7} />
+                    <Digit digit={3} hue={hue} i={6} l={7} />
+                  </>
+                )}
+              </motion.div>
               <div>people visited the park in 2025</div>
             </div>
           </Widget>
@@ -120,16 +136,28 @@ function App() {
             link="https://www.nps.gov/yose/learn/management/statistics.htm"
           >
             <div className="h-full flex flex-col gap-y-3 justify-center">
-              <h2
+              <motion.div
+                onViewportEnter={() => setHasEntered(true)}
+                viewport={{ once: true, amount: 0.5 }}
                 style={
                   {
                     "--text-gradient": `linear-gradient(to right,hsl(${(hue + 180) % 360},100%,50%),hsl(${(hue + 315) % 360},100%,50%))`,
                   } as React.CSSProperties
                 }
-                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['700,000+'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent!`}
+                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['700,000+'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent! before:opacity-80 flex items-center justify-center`}
               >
-                700,000+
-              </h2>
+                {hasEntered && (
+                  <>
+                    <Digit digit={7} hue={hue + 180} i={1} l={6} />
+                    <Digit digit={0} hue={hue + 180} i={2} l={6} />
+                    <Digit digit={4} hue={hue + 180} i={3} l={6} />
+                    ,
+                    <Digit digit={6} hue={hue + 180} i={4} l={6} />
+                    <Digit digit={2} hue={hue + 180} i={5} l={6} />
+                    <Digit digit={4} hue={hue + 180} i={6} l={6} />+
+                  </>
+                )}
+              </motion.div>
               <div>acres of undisturbed wilderness</div>
             </div>
           </Widget>
