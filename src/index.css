@@ -3,3 +3,16 @@
 body {
   @apply bg-gray-950 text-gray-300;
 }
+
+.set {
+  transform: translateY(200%);
+}
+
+.initial {
+  transform: translateY(-100%);
+}
+
+.up {
+  transform: translateY(-100%);
+  opacity: 0;
+}

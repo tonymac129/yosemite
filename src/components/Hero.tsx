@@ -10,9 +10,10 @@ const completed = ["YOSEMITE", "NATIONAL", "PARK"];
 type HeroProps = {
   isDay: boolean;
   setIsDay: React.Dispatch<React.SetStateAction<boolean>>;
+  onclick: () => void;
 };
 
-function Hero({ isDay, setIsDay }: HeroProps) {
+function Hero({ isDay, setIsDay, onclick }: HeroProps) {
   const [upper, setUpper] = useState<string>("");
   const [lower, setLower] = useState<string>("");
   const [showDescription, setShowDescription] = useState<boolean>(false);
@@ -59,7 +60,12 @@ function Hero({ isDay, setIsDay }: HeroProps) {
       transition={{ duration: 17, type: "spring", damping: 15 }}
       className="flex flex-col items-center gap-y-15 py-30 z-50 h-150"
     >
-      <h1 className="font-mono text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+      <h1 className="font-mono text-7xl leading-18 font-extrabold text-center w-300 text-gray-300">
+        {upper}
+        <br />
+        {lower}
+      </h1>
+      <h1 className="absolute left-[50%] -translate-x-[50.2%] -translate-y-[1.5%] font-mono text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
         {upper}
         <br />
         {lower}
@@ -80,13 +86,13 @@ function Hero({ isDay, setIsDay }: HeroProps) {
             - NPS
           </div>
           <div className="flex gap-x-5">
-            <Btn primary>
+            <Btn onclick={onclick} primary>
               <FaMountain size={25} />
               EXPLORE
             </Btn>
             <Btn onclick={() => setIsDay(!isDay)}>
               {isDay ? <FaMoon size={25} /> : <FaSun size={25} />}
-              TOGGLE {isDay ? "NIGHT" : "DAY"}
+              {isDay ? "NIGHT" : "DAY"}
             </Btn>
           </div>
         </motion.div>
