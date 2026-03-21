@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import Hero from "./components/Hero";
 import Widget from "./components/Widget";
@@ -6,9 +6,22 @@ import Widget from "./components/Widget";
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
   const [rotate, setRotate] = useState<number>(45);
+  const [hue, setHue] = useState<number>(0);
   const moonImg = useRef<HTMLImageElement>(null);
   const sunImg = useRef<HTMLImageElement>(null);
   const mainRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    setHue(Math.random() * 360);
+
+    const hueInterval = setInterval(() => {
+      setHue((prev) => prev + 2);
+    }, 75);
+
+    return () => {
+      clearInterval(hueInterval);
+    };
+  }, []);
 
   useEffect(() => {
     const gradientInterval = setInterval(() => {
@@ -72,29 +85,68 @@ function App() {
           })
         }
       />
+      <div ref={mainRef} />
       <motion.div
         initial={{ scale: 0.3, opacity: 0, y: 50 }}
         whileInView={{ scale: 1, y: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
+        viewport={{ once: true }}
         className="flex flex-col py-10 gap-y-10"
-        ref={mainRef}
       >
         <h2 className="text-center text-white text-2xl font-bold font-[sono]!">
           BEAUTIFUL SCENERY
         </h2>
-        <div className="flex flex-wrap justify-center gap-5 mx-[15%]">
-          <Widget>Test hi</Widget>
-          <Widget>Test hi</Widget>
-          <Widget>Test hi</Widget>
-          <Widget>Test hi</Widget>
+        <div className="flex flex-wrap justify-center gap-3 mx-[15%] items-center text-sm text-gray-300 text-center">
+          <Widget
+            i={1}
+            link="https://www.nps.gov/orgs/1207/03-13-26-2025-visitation-statsitics.htm"
+          >
+            <div className="h-full flex flex-col gap-y-3 justify-center">
+              <h2
+                style={
+                  {
+                    "--text-gradient": `linear-gradient(to right,hsl(${hue % 360},100%,50%),hsl(${(hue + 90) % 360},100%,50%))`,
+                  } as React.CSSProperties
+                }
+                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['4,278,213'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent!`}
+              >
+                4,278,213
+              </h2>
+              <div>people visited the park in 2025</div>
+            </div>
+          </Widget>
+          <Widget
+            i={2}
+            link="https://www.nps.gov/yose/learn/management/statistics.htm"
+          >
+            <div className="h-full flex flex-col gap-y-3 justify-center">
+              <h2
+                style={
+                  {
+                    "--text-gradient": `linear-gradient(to right,hsl(${(hue + 180) % 360},100%,50%),hsl(${(hue + 315) % 360},100%,50%))`,
+                  } as React.CSSProperties
+                }
+                className={`relative text-center z-2 font-[sono]! font-extrabold text-5xl bg-clip-text! text-transparent! bg-(image:--text-gradient) before:content-['700,000+'] before:absolute before:z-3 before:blur-xs before:h-full before:w-full before:text-center before:font-[sono]! before:top-0 before:left-0 before:bg-(image:--text-gradient) before:font-extrabold before:text-5xl before:bg-clip-text! before:text-transparent!`}
+              >
+                700,000+
+              </h2>
+              <div>acres of undisturbed wilderness</div>
+            </div>
+          </Widget>
+          <Widget i={3} full>
+            Test hi
+          </Widget>
+          <Widget i={4} full>
+            Test hi
+          </Widget>
         </div>
       </motion.div>
       <motion.div
         initial={{ x: 500, opacity: 0 }}
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
+        viewport={{ once: true }}
         className="flex flex-col py-10 gap-y-10"
-        ref={mainRef}
       >
         <h2 className="text-center text-white text-2xl font-bold font-[sono]!">
           ABOUT THE PARK
@@ -115,6 +167,7 @@ function App() {
       <motion.div
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
         className="pt-20 text-center text-sm text-gray-400"
       >
         &copy; {new Date().getFullYear()}{" "}

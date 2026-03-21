@@ -91,7 +91,17 @@ function Hero({ isDay, setIsDay, onclick }: HeroProps) {
               EXPLORE
             </Btn>
             <Btn onclick={() => setIsDay(!isDay)}>
-              {isDay ? <FaMoon size={25} /> : <FaSun size={25} />}
+              {isDay ? (
+                <FaMoon
+                  size={25}
+                  className="group-hover:-rotate-30 group-active:rotate-30 transition-transform duration-300"
+                />
+              ) : (
+                <FaSun
+                  size={25}
+                  className="group-hover:-rotate-30 group-active:rotate-30 transition-transform duration-300"
+                />
+              )}
               {isDay ? "NIGHT" : "DAY"}
             </Btn>
           </div>
