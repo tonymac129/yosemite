@@ -18,7 +18,7 @@ function App() {
     }, 1800);
 
     setTimeout(() => {
-      moonImg.current?.classList.remove("initial");
+      sunImg.current?.classList.remove("initial");
     }, 1500);
     moonImg.current?.classList.toggle("set");
     sunImg.current?.classList.toggle("set");
@@ -51,12 +51,12 @@ function App() {
       />
       <img
         src="/moon.png"
-        className="initial absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
+        className="up absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
         ref={moonImg}
       />
       <img
         src="/sun.png"
-        className="up absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
+        className="initial absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
         ref={sunImg}
       />
       <div className="absolute top-0 left-0 w-full h-150 bg-center bg-cover bg-[url('/middleground.png')] brightness-50 -z-5" />

@@ -65,7 +65,7 @@ function Hero({ isDay, setIsDay, onclick }: HeroProps) {
         <br />
         {lower}
       </h1>
-      <h1 className="absolute left-[50%] -translate-x-[50.2%] -translate-y-[1.5%] font-mono text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
+      <h1 className="absolute left-[50%] -translate-x-[50.15%] -translate-y-[1.5%] font-mono text-7xl leading-18 font-extrabold text-center w-300 bg-linear-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
         {upper}
         <br />
         {lower}
