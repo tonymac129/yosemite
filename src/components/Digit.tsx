@@ -15,14 +15,21 @@ function Digit({ digit, hue, i, l }: DigitProps) {
   useEffect(() => {
     let count = 0;
     setBottom(-50 * (digit + 1));
-    const randomInterval = Math.random() * 20 + 20;
-    setInterval(() => {
-      if (count < (digit + 1) * 10) {
-        setBottom((prev) => prev + 2.5);
+
+    const randomInterval = Math.floor(Math.random() * 20 + 35);
+    const odometerInterval = setInterval(() => {
+      if (count < (digit + 1) * 5) {
+        setBottom((prev) => prev + 10);
         count++;
+      } else {
+        clearInterval(odometerInterval);
       }
     }, randomInterval);
-  }, []);
+
+    return () => {
+      clearInterval(odometerInterval);
+    };
+  }, [digit]);
 
   return (
     <div className="flex flex-col gap-y-5 w-7.5 h-13.5 z-15 relative overflow-hidden">
