@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Hero from "./components/Hero";
 import Widget from "./components/Widget";
 import Digit from "./components/Digit";
+import Carousel from "./components/Carousel";
 
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
@@ -179,17 +180,39 @@ function App() {
         <h2 className="text-center text-white text-2xl font-bold font-[sono]!">
           ABOUT THE PARK
         </h2>
-        <div className="mx-[15%] text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, aut. Qui
-          harum aut dolor sunt dolores dolorum repellendus vero. Omnis
-          laboriosam deserunt ducimus obcaecati dolore voluptas deleniti quo
-          magni ipsam. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Eum, praesentium qui. Consequuntur sint enim facilis quasi? Aliquam,
-          provident? Atque voluptatum quaerat culpa. Quidem debitis praesentium,
-          repudiandae perspiciatis laborum assumenda quasi? Nulla dignissimos
-          repudiandae eligendi reprehenderit neque ipsam consequatur laboriosam
-          exercitationem eum, beatae, ullam amet consectetur doloremque fugit,
-          laborum perferendis nobis minus numquam.
+        <div className="mx-[15%] text-lg flex flex-col gap-y-10">
+          <p>
+            Yosemite National Park is a popular, breathtaking, and scenic
+            national park located in the mountains of Eastern California in
+            Mariposa County. Established on October 1st, 1890, it is the third
+            oldest national park in the United States. The park consistently
+            gets voted as one of the most beautiful (and popular) national parks
+            in America, with its stunning natural features like the Yosemite
+            Valley made up of the two giant granite cliffs El Capitan and Half
+            Dome, the iconic Yosemite Falls that's the tallest one in the
+            continental US (2,425 feet), giant sequoia forests, glaciers
+            originating from huge mountain peaks, and open meadows.
+          </p>
+          <div className="flex flex-col gap-y-3">
+            <Carousel />
+            <div className="text-sm text-center text-gray-400">
+              Some cool photos of Yosemite wildlife from{" "}
+              <a href="https://unsplash.com" target="_blank">
+                Unsplash
+              </a>
+            </div>
+          </div>
+          <p>
+            Because of its diverse terrain composed of different elevation zones
+            and varying weathers throughout different seasons, the park has an
+            incredible ecosystem that is home to more than 90 types of mammals,
+            250 bird species, and 1,400 native plant species. There are also
+            tons of activities you can do here, including hiking/biking over 800
+            miles of trails, rock climbing on the granite cliffs, kayaking in
+            lakes, going on scenic tours, outdoor camping/lodging, skiing during
+            the winter, and so much more. Yosemite isn't just a national park,
+            it's a way of truly experiencing life.
+          </p>
         </div>
       </motion.div>
       <motion.div
