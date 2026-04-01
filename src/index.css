@@ -21,3 +21,38 @@ body {
   transform: translateY(-100%);
   opacity: 0;
 }
+
+.waterfall {
+  animation: 2.5s linear infinite running waterfall;
+  opacity: 0.5;
+}
+
+@keyframes waterfall {
+  0% {
+    transform: translate(0) rotate(15deg) scaleX(1);
+    opacity: 0;
+  }
+  10% {
+    transform: translateX(30px) translateY(30px) rotate(30deg) scaleX(1.1);
+    opacity: 0.25;
+  }
+  35% {
+    transform: translateX(65px) translateY(90px) rotate(50deg) scaleX(1.2);
+    opacity: 0.5;
+  }
+  60% {
+    transform: translateX(105px) translateY(210px) rotate(75deg) scaleX(1.4);
+  }
+  65% {
+    opacity: 0.5;
+  }
+  80% {
+    transform: translateX(150px) translateY(450px) rotate(85deg) scaleX(1.7);
+  }
+  90% {
+    opacity: 0.25;
+  }
+  100% {
+    transform: translateX(200px) translateY(930px) rotate(90deg) scaleX(2);
+  }
+}

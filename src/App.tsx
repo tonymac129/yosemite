@@ -4,6 +4,7 @@ import Hero from "./components/Hero";
 import Widget from "./components/Widget";
 import Digit from "./components/Digit";
 import Carousel from "./components/Carousel";
+import Waterfall from "./components/Waterfall";
 
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
@@ -78,7 +79,8 @@ function App() {
         ref={sunImg}
       />
       <div className="absolute top-0 left-0 w-full h-150 bg-center bg-cover bg-[url('/middleground.png')] brightness-50 -z-5" />
-      <div className="absolute top-0 left-0 w-full h-150 bg-linear-to-t from-gray-950 via-transparent to-transparent -z-5" />
+      <div className="absolute top-0 left-0 w-full h-150 bg-linear-to-t from-gray-950 via-transparent to-transparent -z-3" />
+      <Waterfall />
       <Hero
         isDay={isDay}
         setIsDay={setIsDay}
