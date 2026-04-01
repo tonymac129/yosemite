@@ -6,6 +6,7 @@ import Digit from "./components/Digit";
 import Carousel from "./components/Carousel";
 import Waterfall from "./components/Waterfall";
 import { GiBearHead, GiPineTree, GiWaterfall } from "react-icons/gi";
+import { CiWarning } from "react-icons/ci";
 
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
@@ -56,6 +57,9 @@ function App() {
 
   return (
     <div className="pb-30">
+      <div className="flex sm:hidden absolute left-[50%] -translate-x-[50%] w-[90%] gap-x-5 items-center px-4 py-2 bg-amber-400/75 backdrop-blur-sm rounded-lg top-2">
+        <CiWarning size={50} /> This page works best on a bigger screen
+      </div>
       <div
         style={{
           background: `
@@ -71,12 +75,12 @@ function App() {
       />
       <img
         src="/moon.png"
-        className="up absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
+        className="up absolute -top-3 right-[5%] lg:right-[calc(50%-600px)] w-25 brightness-90 -z-6 transition-transform duration-300"
         ref={moonImg}
       />
       <img
         src="/sun.png"
-        className="initial absolute -top-3 right-20 w-25 brightness-90 -z-6 transition-transform duration-300"
+        className="initial absolute -top-3 right-[5%] lg:right-[calc(50%-600px)] w-25 brightness-90 -z-6 transition-transform duration-300"
         ref={sunImg}
       />
       <div className="absolute top-0 left-0 w-full h-150 bg-center bg-cover bg-[url('/middleground.png')] brightness-50 -z-5" />
@@ -97,12 +101,12 @@ function App() {
         whileInView={{ scale: 1, y: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
         viewport={{ once: true }}
-        className="flex flex-col py-10 gap-y-10"
+        className="flex flex-col py-10 gap-y-10 items-center"
       >
         <h2 className="text-center text-white text-2xl font-bold font-[sono]!">
           BEAUTIFUL SCENERY
         </h2>
-        <div className="flex flex-wrap justify-center gap-3 mx-[15%] items-center text-sm text-gray-300 text-center">
+        <div className="flex flex-wrap max-w-300 w-[90%] lg:w-[70%] justify-center gap-3 mx-[5%] lg:mx-[15%] items-center text-sm text-gray-300 text-center">
           <Widget
             i={1}
             link="https://www.nps.gov/orgs/1207/03-13-26-2025-visitation-statsitics.htm"
@@ -173,7 +177,7 @@ function App() {
             <div className="w-full h-full flex justify-center items-center gap-x-10">
               <GiWaterfall size={70} className="text-blue-400" />
               <div className="flex flex-col gap-y-3 justify-center">
-                <h2 className="text-3xl font-extrabold font-[sono]! bg-linear-to-r from-blue-500 via-blue-500 to-amber-800 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-extrabold font-[sono]! bg-linear-to-r from-blue-500 via-blue-500 to-amber-800 bg-clip-text text-transparent">
                   Yosemite Falls
                 </h2>
                 <div>is the tallest waterfall in North America</div>
@@ -181,14 +185,14 @@ function App() {
             </div>
           </Widget>
           <Widget i={4} full link="https://en.wikipedia.org/wiki/Grizzly_Giant">
-            <div className="w-full h-full flex justify-center items-center gap-x-5">
-              <div className="flex gap-x-3 text-5xl font-extrabol font-[sono]! items-center">
+            <div className="w-full h-full flex justify-center items-center gap-x-3 md:gap-x-5">
+              <div className="flex md:gap-x-3 text-5xl font-extrabol font-[sono]! items-center">
                 <GiBearHead size={70} className="text-amber-800" />
                 +
                 <GiPineTree size={70} className="text-green-500" />
               </div>
               <div className="flex flex-col gap-y-3 justify-center">
-                <h2 className="text-3xl font-extrabold font-[sono]! bg-linear-to-r from-green-500 to-amber-800 bg-clip-text text-transparent">
+                <h2 className="text-2xl font-extrabold font-[sono]! bg-linear-to-r from-green-500 to-amber-800 bg-clip-text text-transparent">
                   Grizzly Giant
                 </h2>
                 <div>iconic 3000+ year old massive sequoia</div>
@@ -202,12 +206,12 @@ function App() {
         whileInView={{ x: 0, opacity: 1 }}
         transition={{ duration: 1, type: "spring" }}
         viewport={{ once: true }}
-        className="flex flex-col py-10 gap-y-10"
+        className="flex flex-col items-center py-10 gap-y-10"
       >
         <h2 className="text-center text-white text-2xl font-bold font-[sono]!">
           ABOUT THE PARK
         </h2>
-        <div className="mx-[15%] text-lg flex flex-col gap-y-10">
+        <div className="mx-[5%] lg:mx-[15%] max-w-300 w-[90%] lg:w-[70%] text-lg flex flex-col gap-y-10">
           <p>
             Yosemite National Park is a popular, breathtaking, and scenic
             national park located in the mountains of Eastern California in

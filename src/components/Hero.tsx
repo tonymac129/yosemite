@@ -75,7 +75,7 @@ function Hero({ isDay, setIsDay, onclick }: HeroProps) {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.3, type: "spring" }}
-          className="w-[35%] flex flex-col gap-y-5 items-center text-center"
+          className="w-[65%] lg:w-[35%] flex flex-col gap-y-5 items-center text-center"
         >
           <div>
             <i>

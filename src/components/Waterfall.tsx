@@ -3,7 +3,7 @@ const randoms = [...Array(50)].map(() => Math.floor(Math.random() * 20) - 10);
 
 function Waterfall() {
   return (
-    <div className="left-15 absolute -top-35 w-100 h-185 -z-4 overflow-hidden">
+    <div className="lg:left-15 -left-45 sm:-left-25 absolute -top-35 w-100 h-185 -z-4 overflow-hidden">
       {randoms.map((random, i) => {
         return (
           <div style={{ left: `${random}px` }} className="absolute">
