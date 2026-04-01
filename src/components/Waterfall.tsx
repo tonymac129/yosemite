@@ -1,5 +1,5 @@
 const lefts = [0, 6, 4, 10, 10, 4, 6, 0];
-const randoms = [...Array(30)].map((i) => Math.floor(Math.random() * 10) - 5);
+const randoms = [...Array(30)].map(() => Math.floor(Math.random() * 10) - 5);
 
 function Waterfall() {
   return (
