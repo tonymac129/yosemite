@@ -5,6 +5,7 @@ import Widget from "./components/Widget";
 import Digit from "./components/Digit";
 import Carousel from "./components/Carousel";
 import Waterfall from "./components/Waterfall";
+import { GiBearHead, GiPineTree, GiWaterfall } from "react-icons/gi";
 
 function App() {
   const [isDay, setIsDay] = useState<boolean>(false);
@@ -164,11 +165,35 @@ function App() {
               <div>acres of undisturbed wilderness</div>
             </div>
           </Widget>
-          <Widget i={3} full>
-            Test hi
+          <Widget
+            i={3}
+            full
+            link="https://www.nps.gov/yose/planyourvisit/waterfalls.htm"
+          >
+            <div className="w-full h-full flex justify-center items-center gap-x-10">
+              <GiWaterfall size={70} className="text-blue-400" />
+              <div className="flex flex-col gap-y-3 justify-center">
+                <h2 className="text-3xl font-extrabold font-[sono]! bg-linear-to-r from-blue-500 via-blue-500 to-amber-800 bg-clip-text text-transparent">
+                  Yosemite Falls
+                </h2>
+                <div>is the tallest waterfall in North America</div>
+              </div>
+            </div>
           </Widget>
-          <Widget i={4} full>
-            Test hi
+          <Widget i={4} full link="https://en.wikipedia.org/wiki/Grizzly_Giant">
+            <div className="w-full h-full flex justify-center items-center gap-x-5">
+              <div className="flex gap-x-3 text-5xl font-extrabol font-[sono]! items-center">
+                <GiBearHead size={70} className="text-amber-800" />
+                +
+                <GiPineTree size={70} className="text-green-500" />
+              </div>
+              <div className="flex flex-col gap-y-3 justify-center">
+                <h2 className="text-3xl font-extrabold font-[sono]! bg-linear-to-r from-green-500 to-amber-800 bg-clip-text text-transparent">
+                  Grizzly Giant
+                </h2>
+                <div>iconic 3000+ year old massive sequoia</div>
+              </div>
+            </div>
           </Widget>
         </div>
       </motion.div>
@@ -198,10 +223,7 @@ function App() {
           <div className="flex flex-col gap-y-3">
             <Carousel />
             <div className="text-sm text-center text-gray-400">
-              Some cool photos of Yosemite wildlife from{" "}
-              <a href="https://unsplash.com" target="_blank">
-                Unsplash
-              </a>
+              tell me these photos of Yosemite scenery and wildlife aren't tuff
             </div>
           </div>
           <p>
