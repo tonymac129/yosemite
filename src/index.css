@@ -23,7 +23,7 @@ body {
 }
 
 .waterfall {
-  animation: 2.5s linear infinite running waterfall;
+  animation: 2s linear infinite running waterfall;
   opacity: 0.5;
 }
 
