@@ -8,7 +8,7 @@
 
 ![image](/banner.png)
 
-A simple interactive landing webpage about Yosemite National Park with tons of cool animations, styling, effects, and other stuff related to the park and its natural scenery! I built this for a CSS challenge and I implemented a ton of interactive elements, styling, and animation effects to make the page more interesting and aesthetically pleasing!
+A simple interactive landing webpage about Yosemite National Park with tons of cool animations, styling, effects, and other stuff related to the park and its natural scenery! I built this for a CSS challenge (for myself, it's not an external competition or event) and I implemented a ton of interactive elements, styling, and animation effects to make the page more interesting and aesthetically pleasing!
 
 ## Tech stack
 
